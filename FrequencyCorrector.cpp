@@ -22,7 +22,6 @@ const float actualTable[tableSize] = {
 float CorrectFrequency = 0;
 
 void initFrequencyCorrector() {
-  // Any setup needed (if any), currently nothing
 }
 
 void updateCorrectFrequencyLoop() {
@@ -54,4 +53,5 @@ void updateCorrectFrequencyLoop() {
   }
   CorrectFrequency = rawFrequency;
 }
+
 
