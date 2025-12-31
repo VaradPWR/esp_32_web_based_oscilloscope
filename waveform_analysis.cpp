@@ -35,7 +35,6 @@ uint16_t readMCP3008(uint8_t channel) {
     return (highByte << 8) | lowByte;
 }
 
-// ... [Keep the initial definitions and initWaveformAnalyzer() the same] ...
 
 void updateWaveformData() {
     int Vmin = ADC_MAX, Vmax = 0;
@@ -73,7 +72,6 @@ void updateWaveformData() {
         Vpp = ((Vmax - Vmin) * V_REF) / ADC_MAX;
     }
 
-    // Second pass: RMS calculation with adjusted offset
     sumSquares = 0.0;
     sampleCount = 0;
     startTime = millis();
@@ -92,7 +90,7 @@ void updateWaveformData() {
     // Calculate RMS and crest factor
     float Vrms = sqrt(sumSquares / sampleCount);
     float Vpeak = Vpp / 2;
-    float crestFactor = (Vrms > 0.1) ? Vpeak / Vrms : 0;  // Avoid division by zero
+    float crestFactor = (Vrms > 0.1) ? Vpeak / Vrms : 0; 
 
     // Enhanced waveform detection
     if (crestFactor >= 1.3 && crestFactor <= 1.45) {
@@ -105,3 +103,4 @@ void updateWaveformData() {
         formtype = 0;  // Unknown
     }
 }
+
