@@ -1,4 +1,4 @@
-#include "joker.h"
+#include "waveform_analysis.h"
 
 #define CS_PIN 15  // MCP3008 Chip Select (change if needed)
 #define ADC_MAX 1023  // MCP3008 is 10-bit (0-1023)
@@ -103,4 +103,5 @@ void updateWaveformData() {
         formtype = 0;  // Unknown
     }
 }
+
 
